@@ -1,48 +1,30 @@
-<section>
-  <div class="overflow-x-auto container w-[600] mx-auto mt-7">
-    <table class="w-full text-sm text-center border-collapse">
-      <!-- Header -->
-      <thead class="bg-green-600 text-white">
+<div class="container-max" style="margin-top: 30px; padding: 0 20px">
+  <nz-table #basicTable [nzData]="surahs()" [nzBordered]="true" nzSize="middle">
+    <thead>
+      <tr>
+        <th nzAlign="center" style="background-color: #16a34a; color: white">رقم السورة</th>
+        <th nzAlign="center" style="background-color: #16a34a; color: white">اسم السورة</th>
+        <th nzAlign="center" style="background-color: #16a34a; color: white">الاسم بالإنجليزية</th>
+        <th nzAlign="center" style="background-color: #16a34a; color: white">عدد الآيات</th>
+        <th nzAlign="center" style="background-color: #16a34a; color: white">النوع</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of basicTable.data; track item.surah_number) {
         <tr>
-          <th class="py-3">رقم السورة</th>
-          <th class="py-3">اسم السورة</th>
-          <th class="py-3">الاسم بالإنجليزية</th>
-          <th class="py-3">عدد الآيات</th>
-          <th class="py-3">النوع</th>
+          <td nzAlign="center">
+            <span class="surah-badge">{{ item.surah_number }}</span>
+          </td>
+          <td nzAlign="center" style="color: #15803d; font-weight: bold">{{ item.name_ar }}</td>
+          <td nzAlign="center" style="color: #666; font-style: italic">{{ item.name_en }}</td>
+          <td nzAlign="center">{{ item.ayahs_count }}</td>
+          <td nzAlign="center">
+            <nz-tag [nzColor]="item.revelation_type === 'meccan' ? 'orange' : 'green'">
+              {{ item.revelation_type }}
+            </nz-tag>
+          </td>
         </tr>
-      </thead>
-
-      @for (item of surahs(); track $index) {
-        <!-- Row -->
-        <tbody class="bg-gray-100">
-          <tr class="border-t">
-            <!-- رقم السورة -->
-            <td class="py-4">
-              <span
-                class="bg-green-600 text-white rounded-full size-8 flex items-center justify-center mx-auto"
-              >
-                {{ item.ayahs_count }}
-              </span>
-            </td>
-
-            <!-- اسم السورة -->
-            <td class="font-semibold text-green-700">{{ item.name_ar }}</td>
-
-            <!-- الاسم بالانجليزي -->
-            <td class="text-gray-600">{{ item.name_en }}</td>
-
-            <!-- عدد الآيات -->
-            <td class="text-gray-700">{{ item.surah_number }}</td>
-
-            <!-- النوع -->
-            <td>
-              <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs">
-                {{ item.revelation_type }}
-              </span>
-            </td>
-          </tr>
-        </tbody>
       }
-    </table>
-  </div>
-</section>
+    </tbody>
+  </nz-table>
+</div>

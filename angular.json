@@ -30,6 +30,7 @@
               }
             ],
             "styles": [
+              "src/styles.css",
               "src/theme.less",
               "src/styles.less",
               "public/assets/icons/boxicons.min.css"
