@@ -1,5 +1,5 @@
 import { Component, input, output, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -9,7 +9,7 @@ import { Recitation } from '../../../features/quranic-cms/models/recitations.mod
 @Component({
   selector: 'app-recitation-card',
   standalone: true,
-  imports: [CommonModule, NzCardModule, NzIconModule, NzButtonModule, TranslateModule],
+  imports: [NzCardModule, NzIconModule, NzButtonModule, TranslateModule],
   templateUrl: './recitation-card.component.html',
   styleUrl: './recitation-card.component.less',
 })

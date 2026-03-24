@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-publishers-layout',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule],
   template: `
     <div class="publishers-layout">
       <nav class="custom-nav-container">

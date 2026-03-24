@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -9,7 +9,7 @@ import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-publisher-filters',
   standalone: true,
-  imports: [CommonModule, FormsModule, NzInputModule, NzSelectModule, NzButtonModule],
+  imports: [FormsModule, NzInputModule, NzSelectModule, NzButtonModule],
   template: `
     <div class="filters-container">
       <div class="filter-bar-content">
@@ -94,7 +94,7 @@ export class PublisherFiltersComponent implements OnInit, OnDestroy {
   @Output() searchChanged = new EventEmitter<string>();
   @Output() filterChanged = new EventEmitter<boolean | null>();
 
-  searchTerm: string = '';
+  searchTerm = '';
   activeFilter: boolean | null = null;
 
   private searchSubject = new Subject<string>();

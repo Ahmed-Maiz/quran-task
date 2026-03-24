@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -10,59 +10,73 @@ import { EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-publisher-card',
   standalone: true,
-  imports: [CommonModule, NzCardModule, NzAvatarModule],
+  imports: [NzCardModule, NzAvatarModule],
   template: `
     <nz-card class="publisher-card">
       <div class="card-actions">
         <i class="bx bx-edit-alt edit-btn" (click)="onEdit()"></i>
         <i class="bx bx-trash delete-btn" (click)="onDelete()"></i>
       </div>
-
+    
       <div class="card-identity">
         <nz-avatar [nzSize]="64" [nzSrc]="publisher.icon_url" nzIcon="user" class="publisher-logo">
         </nz-avatar>
-
+    
         <div class="name-container">
           <h2 class="name-ar">
             {{ publisher.name_ar }}
-            <i *ngIf="publisher.is_verified" class="bx bxs-check-circle verified-icon"></i>
+            @if (publisher.is_verified) {
+              <i class="bx bxs-check-circle verified-icon"></i>
+            }
           </h2>
           <p class="name-en">{{ publisher.name_en }}</p>
         </div>
       </div>
-
-      <div class="card-body" *ngIf="publisher.description">
-        <p class="description-text">{{ publisher.description }}</p>
-      </div>
-
+    
+      @if (publisher.description) {
+        <div class="card-body">
+          <p class="description-text">{{ publisher.description }}</p>
+        </div>
+      }
+    
       <div class="card-details">
-        <div class="detail-row" *ngIf="publisher.country">
-          <i class="bx bx-map"></i>
-          <span>{{ publisher.country }}</span>
-        </div>
-
-        <div class="detail-row" *ngIf="publisher.foundation_year">
-          <i class="bx bx-calendar"></i>
-          <span>تأسس عام {{ publisher.foundation_year }}</span>
-        </div>
-
-        <div class="detail-row" *ngIf="publisher.address">
-          <i class="bx bx-pin"></i>
-          <span>{{ publisher.address }}</span>
-        </div>
-
-        <div class="detail-row" *ngIf="publisher.website">
-          <i class="bx bx-globe"></i>
-          <a [href]="publisher.website" target="_blank">{{ publisher.website }}</a>
-        </div>
-
-        <div class="detail-row" *ngIf="publisher.contact_email">
-          <i class="bx bx-envelope"></i>
-          <span>{{ publisher.contact_email }}</span>
-        </div>
+        @if (publisher.country) {
+          <div class="detail-row">
+            <i class="bx bx-map"></i>
+            <span>{{ publisher.country }}</span>
+          </div>
+        }
+    
+        @if (publisher.foundation_year) {
+          <div class="detail-row">
+            <i class="bx bx-calendar"></i>
+            <span>تأسس عام {{ publisher.foundation_year }}</span>
+          </div>
+        }
+    
+        @if (publisher.address) {
+          <div class="detail-row">
+            <i class="bx bx-pin"></i>
+            <span>{{ publisher.address }}</span>
+          </div>
+        }
+    
+        @if (publisher.website) {
+          <div class="detail-row">
+            <i class="bx bx-globe"></i>
+            <a [href]="publisher.website" target="_blank">{{ publisher.website }}</a>
+          </div>
+        }
+    
+        @if (publisher.contact_email) {
+          <div class="detail-row">
+            <i class="bx bx-envelope"></i>
+            <span>{{ publisher.contact_email }}</span>
+          </div>
+        }
       </div>
     </nz-card>
-  `,
+    `,
   styles: [
     `
       .publisher-card {

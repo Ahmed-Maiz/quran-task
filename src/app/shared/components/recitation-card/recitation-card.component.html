@@ -16,15 +16,19 @@
     <strong>{{ recitation().riwayah?.name || '---' }}</strong>
   </div>
 
-  <div class="card-info-row" *ngIf="recitation().performance">
-    <span>{{ 'RECITATIONS.PERFORMANCE' | translate }}</span>
-    <strong>{{ recitation().performance }}</strong>
-  </div>
+  @if (recitation().performance) {
+    <div class="card-info-row">
+      <span>{{ 'RECITATIONS.PERFORMANCE' | translate }}</span>
+      <strong>{{ recitation().performance }}</strong>
+    </div>
+  }
 
-  <div class="card-info-row" *ngIf="recitation().style">
-    <span>{{ 'RECITATIONS.STYLE' | translate }}</span>
-    <strong>{{ recitation().style }}</strong>
-  </div>
+  @if (recitation().style) {
+    <div class="card-info-row">
+      <span>{{ 'RECITATIONS.STYLE' | translate }}</span>
+      <strong>{{ recitation().style }}</strong>
+    </div>
+  }
 
   <div class="card-meta">
     <div class="meta-item">

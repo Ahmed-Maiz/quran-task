@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { PublisherAddComponent } from './components/publisher-add/publisher-add.component';
 import { PublisherFiltersComponent } from './components/publisher-filters/publisher-filters.component';
@@ -12,39 +12,40 @@ import { PublishersService } from './services/publishers.service';
   selector: 'app-publishers',
   standalone: true,
   imports: [
-    CommonModule,
     PublishersBannerComponent,
     PublishersStatsCardsComponent,
     PublisherFiltersComponent,
     PublisherListComponent,
-    PublisherAddComponent,
-  ],
+    PublisherAddComponent
+],
   template: `
     <div class="publishers-page">
       <app-publishers-banner></app-publishers-banner>
       <app-publishers-stats-cards></app-publishers-stats-cards>
-
+    
       <div class="action-bar">
-        <app-publisher-filters
-          *ngIf="!isAdding"
-          (searchChanged)="onSearch($event)"
-          (filterChanged)="onFilterChange($event)"
-        ></app-publisher-filters>
-
+        @if (!isAdding) {
+          <app-publisher-filters
+            (searchChanged)="onSearch($event)"
+            (filterChanged)="onFilterChange($event)"
+          ></app-publisher-filters>
+        }
+    
         <app-publisher-add
           [(isAdding)]="isAdding"
           (publisherAdded)="onPublisherAdded()"
         ></app-publisher-add>
       </div>
-
-      <app-publisher-list
-        *ngIf="!isAdding"
-        [publishers]="publishers"
-        [loading]="loading"
-        [hasMore]="hasMore"
-      ></app-publisher-list>
+    
+      @if (!isAdding) {
+        <app-publisher-list
+          [publishers]="publishers"
+          [loading]="loading"
+          [hasMore]="hasMore"
+        ></app-publisher-list>
+      }
     </div>
-  `,
+    `,
   styles: [
     `
       .publishers-page {

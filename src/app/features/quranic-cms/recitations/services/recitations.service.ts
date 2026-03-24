@@ -19,9 +19,9 @@ export class RecitationsService {
   private readonly apiUrl = `${environment.API_BASE_URL}/recitations/`;
 
   getRecitations(
-    page: number = 1,
-    pageSize: number = 10,
-    search: string = '',
+    page = 1,
+    pageSize = 10,
+    search = '',
     riwayah?: string,
     type?: string
   ): Observable<PaginatedResponse<RecitationItem>> {

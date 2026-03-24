@@ -2,12 +2,12 @@ import { Component, DestroyRef, inject, OnInit, signal, computed } from '@angula
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { QuranDataService, QuranWord, SurahStats } from '../../services/quran-data.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-mushaf-words',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './mushaf-words.page.html',
   styleUrls: ['./mushaf-words.page.less'],
 })

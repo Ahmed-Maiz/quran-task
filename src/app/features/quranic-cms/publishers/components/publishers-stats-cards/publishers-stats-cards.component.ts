@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit } from '@angular/core';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -8,29 +8,30 @@ import { PublishersStatsService } from '../../services/publishers-stats.service'
 @Component({
   selector: 'app-publishers-stats-cards',
   standalone: true,
-  imports: [CommonModule, NzGridModule, NzCardModule, NzSpinModule],
+  imports: [NzGridModule, NzCardModule, NzSpinModule],
   template: `
     <div nz-row [nzGutter]="16" class="stats-container">
-      <div nz-col [nzSpan]="8" *ngFor="let card of cards">
-        <nz-card class="stat-card" [nzLoading]="loading">
-          <div class="stat-content">
-            <div
-              class="stat-icon"
-              [style.backgroundColor]="card.bgColor"
-              [style.color]="card.iconColor"
-            >
-              <i [class]="card.icon"></i>
+      @for (card of cards; track card) {
+        <div nz-col [nzSpan]="8">
+          <nz-card class="stat-card" [nzLoading]="loading">
+            <div class="stat-content">
+              <div
+                class="stat-icon"
+                [style.backgroundColor]="card.bgColor"
+                [style.color]="card.iconColor"
+                >
+                <i [class]="card.icon"></i>
+              </div>
+              <div class="stat-info">
+                <div class="stat-value">{{ card.value }}</div>
+                <div class="stat-label">{{ card.label }}</div>
+              </div>
             </div>
-
-            <div class="stat-info">
-              <div class="stat-value">{{ card.value }}</div>
-              <div class="stat-label">{{ card.label }}</div>
-            </div>
-          </div>
-        </nz-card>
-      </div>
+          </nz-card>
+        </div>
+      }
     </div>
-  `,
+    `,
   styles: [
     `
       .stats-container {
