@@ -50,9 +50,7 @@ export class AyahsPage implements OnInit {
 
     if (query) {
       ayahs = ayahs.filter(
-        (a) =>
-          a.searchableText.includes(query) ||
-          a.textWithoutTashkil.includes(query)
+        (a) => a.searchableText.includes(query) || a.textWithoutTashkil.includes(query)
       );
     }
 
@@ -69,9 +67,10 @@ export class AyahsPage implements OnInit {
   private searchTimeout: ReturnType<typeof setTimeout> | null = null;
 
   ngOnInit(): void {
-    this.quranDataService.getAyahs()
+    this.quranDataService
+      .getAyahs()
       .pipe(take(1))
-      .subscribe(ayahs => {
+      .subscribe((ayahs) => {
         this.allAyahs.set(ayahs);
         this.loading.set(false);
       });
