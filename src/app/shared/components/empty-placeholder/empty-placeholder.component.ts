@@ -1,4 +1,3 @@
-
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';

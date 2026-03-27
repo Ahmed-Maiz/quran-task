@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 
-
 export interface UserAvatarData {
   avatar_url?: string;
   name?: string;

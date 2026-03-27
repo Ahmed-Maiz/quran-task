@@ -10,35 +10,23 @@ import { PublisherCardComponent } from '../publisher-card/publisher-card.compone
 @Component({
   selector: 'app-publisher-list',
   standalone: true,
-  imports: [
-    NzGridModule,
-    NzEmptyModule,
-    NzSpinModule,
-    PublisherCardComponent,
-    ScrollingModule
-],
+  imports: [NzGridModule, NzEmptyModule, NzSpinModule, PublisherCardComponent, ScrollingModule],
   template: `
     <div class="list-container" #scrollContainer>
       <div nz-row [nzGutter]="[16, 16]">
         @for (publisher of publishers; track publisher) {
-          <div
-            nz-col
-            [nzXs]="24"
-            [nzSm]="12"
-            [nzMd]="8"
-            [nzLg]="8"
-            >
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="8" [nzLg]="8">
             <app-publisher-card [publisher]="publisher"></app-publisher-card>
           </div>
         }
       </div>
-    
+
       @if (loading) {
         <div class="loading-spinner">
           <nz-spin nzSimple nzSize="large"></nz-spin>
         </div>
       }
-    
+
       @if (!loading && publishers.length === 0) {
         <div class="empty-state">
           <nz-empty
@@ -47,14 +35,14 @@ import { PublisherCardComponent } from '../publisher-card/publisher-card.compone
           ></nz-empty>
         </div>
       }
-    
+
       @if (!hasMore && publishers.length > 0) {
         <div class="no-more">
           <p>لا يوجد المزيد من الناشرين</p>
         </div>
       }
     </div>
-    `,
+  `,
   styles: [
     `
       .list-container {
