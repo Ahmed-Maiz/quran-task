@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -18,8 +17,8 @@ import { PublishersService } from '../../services/publishers.service';
     NzInputModule,
     NzButtonModule,
     NzGridModule,
-    NzIconModule
-],
+    NzIconModule,
+  ],
   template: `
     @if (!isAdding) {
       <div class="add-button-container">
@@ -29,7 +28,7 @@ import { PublishersService } from '../../services/publishers.service';
         </button>
       </div>
     }
-    
+
     @if (isAdding) {
       <div class="form-page-wrapper">
         <div class="inline-form-card">
@@ -64,7 +63,7 @@ import { PublishersService } from '../../services/publishers.service';
                       nz-input
                       formControlName="country"
                       placeholder="المملكة العربية السعودية"
-                      />
+                    />
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -77,7 +76,7 @@ import { PublishersService } from '../../services/publishers.service';
                       type="number"
                       formControlName="foundation_year"
                       placeholder="2026"
-                      />
+                    />
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -95,7 +94,11 @@ import { PublishersService } from '../../services/publishers.service';
                 <nz-form-item>
                   <nz-form-label>البريد الإلكتروني</nz-form-label>
                   <nz-form-control>
-                    <input nz-input formControlName="contact_email" placeholder="info@example.com" />
+                    <input
+                      nz-input
+                      formControlName="contact_email"
+                      placeholder="info@example.com"
+                    />
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -109,7 +112,7 @@ import { PublishersService } from '../../services/publishers.service';
                       nz-input
                       formControlName="address"
                       placeholder="مثلاً: الرياض، حي المروج"
-                      />
+                    />
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -121,7 +124,7 @@ import { PublishersService } from '../../services/publishers.service';
                       nz-input
                       formControlName="icon_url"
                       placeholder="https://example.com/logo.png"
-                      />
+                    />
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -148,7 +151,7 @@ import { PublishersService } from '../../services/publishers.service';
                 [nzLoading]="isConfirmLoading"
                 (click)="handleOk()"
                 class="full-width-save-btn"
-                >
+              >
                 <span nz-icon nzType="save"></span>
                 حفظ الناشر
               </button>
@@ -157,7 +160,7 @@ import { PublishersService } from '../../services/publishers.service';
         </div>
       </div>
     }
-    `,
+  `,
   styles: [
     `
       .form-page-wrapper {

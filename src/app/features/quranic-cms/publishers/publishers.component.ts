@@ -1,4 +1,3 @@
-
 import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { PublisherAddComponent } from './components/publisher-add/publisher-add.component';
 import { PublisherFiltersComponent } from './components/publisher-filters/publisher-filters.component';
@@ -16,13 +15,13 @@ import { PublishersService } from './services/publishers.service';
     PublishersStatsCardsComponent,
     PublisherFiltersComponent,
     PublisherListComponent,
-    PublisherAddComponent
-],
+    PublisherAddComponent,
+  ],
   template: `
     <div class="publishers-page">
       <app-publishers-banner></app-publishers-banner>
       <app-publishers-stats-cards></app-publishers-stats-cards>
-    
+
       <div class="action-bar">
         @if (!isAdding) {
           <app-publisher-filters
@@ -30,13 +29,13 @@ import { PublishersService } from './services/publishers.service';
             (filterChanged)="onFilterChange($event)"
           ></app-publisher-filters>
         }
-    
+
         <app-publisher-add
           [(isAdding)]="isAdding"
           (publisherAdded)="onPublisherAdded()"
         ></app-publisher-add>
       </div>
-    
+
       @if (!isAdding) {
         <app-publisher-list
           [publishers]="publishers"
@@ -45,7 +44,7 @@ import { PublishersService } from './services/publishers.service';
         ></app-publisher-list>
       }
     </div>
-    `,
+  `,
   styles: [
     `
       .publishers-page {

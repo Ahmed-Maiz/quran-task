@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { QuranDataService, QuranWord, SurahStats } from '../../services/quran-data.service';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-mushaf-words',
   standalone: true,

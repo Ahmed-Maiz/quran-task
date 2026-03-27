@@ -1,4 +1,3 @@
-
 import { Component, Input } from '@angular/core';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -17,11 +16,11 @@ import { EventEmitter, Output } from '@angular/core';
         <i class="bx bx-edit-alt edit-btn" (click)="onEdit()"></i>
         <i class="bx bx-trash delete-btn" (click)="onDelete()"></i>
       </div>
-    
+
       <div class="card-identity">
         <nz-avatar [nzSize]="64" [nzSrc]="publisher.icon_url" nzIcon="user" class="publisher-logo">
         </nz-avatar>
-    
+
         <div class="name-container">
           <h2 class="name-ar">
             {{ publisher.name_ar }}
@@ -32,13 +31,13 @@ import { EventEmitter, Output } from '@angular/core';
           <p class="name-en">{{ publisher.name_en }}</p>
         </div>
       </div>
-    
+
       @if (publisher.description) {
         <div class="card-body">
           <p class="description-text">{{ publisher.description }}</p>
         </div>
       }
-    
+
       <div class="card-details">
         @if (publisher.country) {
           <div class="detail-row">
@@ -46,28 +45,28 @@ import { EventEmitter, Output } from '@angular/core';
             <span>{{ publisher.country }}</span>
           </div>
         }
-    
+
         @if (publisher.foundation_year) {
           <div class="detail-row">
             <i class="bx bx-calendar"></i>
             <span>تأسس عام {{ publisher.foundation_year }}</span>
           </div>
         }
-    
+
         @if (publisher.address) {
           <div class="detail-row">
             <i class="bx bx-pin"></i>
             <span>{{ publisher.address }}</span>
           </div>
         }
-    
+
         @if (publisher.website) {
           <div class="detail-row">
             <i class="bx bx-globe"></i>
             <a [href]="publisher.website" target="_blank">{{ publisher.website }}</a>
           </div>
         }
-    
+
         @if (publisher.contact_email) {
           <div class="detail-row">
             <i class="bx bx-envelope"></i>
@@ -76,7 +75,7 @@ import { EventEmitter, Output } from '@angular/core';
         }
       </div>
     </nz-card>
-    `,
+  `,
   styles: [
     `
       .publisher-card {

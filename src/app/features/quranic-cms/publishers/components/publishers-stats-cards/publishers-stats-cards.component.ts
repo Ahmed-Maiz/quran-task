@@ -1,4 +1,3 @@
-
 import { Component, inject, OnInit } from '@angular/core';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -19,7 +18,7 @@ import { PublishersStatsService } from '../../services/publishers-stats.service'
                 class="stat-icon"
                 [style.backgroundColor]="card.bgColor"
                 [style.color]="card.iconColor"
-                >
+              >
                 <i [class]="card.icon"></i>
               </div>
               <div class="stat-info">
@@ -31,7 +30,7 @@ import { PublishersStatsService } from '../../services/publishers-stats.service'
         </div>
       }
     </div>
-    `,
+  `,
   styles: [
     `
       .stats-container {
